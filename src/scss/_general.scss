@@ -4,6 +4,9 @@
 * {
 	box-sizing: border-box;
 }
+&:focus {
+	outline: none;
+}
 html,
 body {
 	margin: 0;
@@ -36,11 +39,35 @@ h4 {
 }
 
 a {
+	font-size: 1rem;
 	color: $text-color;
 	text-decoration: none;
 	@include transition();
 
 	&:visited {
 		color: $text-color;
+	}
+}
+
+.width-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+// Content
+section {
+	min-height: 100vh;
+	padding: 20vh 20px;
+	text-align: center;
+	background-color: $white;
+	color: $text-color;
+
+	&:nth-of-type(even) {
+		background-color: $front-pink;
+		color: $white;
+	}
+
+	.width-container {
+		max-width: 800px;
 	}
 }
