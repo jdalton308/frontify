@@ -16,6 +16,8 @@ html {
 
 body {
   padding-top: 100px; }
+  body.fixed {
+    overflow: hidden; }
 
 h1,
 h2,
@@ -53,9 +55,9 @@ button,
 .button {
   display: inline-block;
   background-color: transparent;
-  padding: 20px 35px;
+  padding: 15px 25px 13px;
   border: none;
-  border-radius: 35px;
+  border-radius: 30px;
   text-align: center;
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 1rem;
@@ -92,46 +94,53 @@ button,
       background-color: #FFF;
       color: #FFF; }
   @media (min-width: 768px) {
-    button.gold:hover,
-    .button.gold:hover {
-      background-color: #db9504; }
-    button.grey:hover,
-    .button.grey:hover {
-      background-color: #666;
-      color: #FFF; }
-    button.grey:active,
-    .button.grey:active {
-      color: #666; }
-    button.white:hover,
-    .button.white:hover {
-      background-color: #FFF;
-      color: #666; } }
-  button.menu,
-  .button.menu {
+    button,
+    .button {
+      padding: 20px 35px;
+      border: none;
+      border-radius: 35px; }
+      button.gold:hover,
+      .button.gold:hover {
+        background-color: #db9504; }
+      button.grey:hover,
+      .button.grey:hover {
+        background-color: #666;
+        color: #FFF; }
+      button.grey:active,
+      .button.grey:active {
+        color: #666; }
+      button.white:hover,
+      .button.white:hover {
+        background-color: #FFF;
+        color: #666; } }
+  button.menu-btn,
+  .button.menu-btn {
     position: relative;
     color: #06536e;
-    padding-left: 5px;
-    padding-right: 5px; }
-    button.menu:active,
-    .button.menu:active {
+    padding: 0 5px; }
+    button.menu-btn:active,
+    .button.menu-btn:active {
       color: #FFF; }
-      button.menu:active .icon-menu .line,
-      button.menu:active .icon-menu .line:before,
-      button.menu:active .icon-menu .line:after,
-      .button.menu:active .icon-menu .line,
-      .button.menu:active .icon-menu .line:before,
-      .button.menu:active .icon-menu .line:after {
+      button.menu-btn:active .icon-menu .line,
+      button.menu-btn:active .icon-menu .line:before,
+      button.menu-btn:active .icon-menu .line:after,
+      .button.menu-btn:active .icon-menu .line,
+      .button.menu-btn:active .icon-menu .line:before,
+      .button.menu-btn:active .icon-menu .line:after {
         background-color: #FFF; }
-    button.menu .icon-menu,
-    .button.menu .icon-menu {
+    button.menu-btn .btn-text,
+    .button.menu-btn .btn-text {
+      display: none; }
+    button.menu-btn .icon-menu,
+    .button.menu-btn .icon-menu {
       position: relative;
       top: 1px;
       display: inline-block;
-      margin-left: 20px;
-      height: 1em;
-      width: 40px; }
-      button.menu .icon-menu .line,
-      .button.menu .icon-menu .line {
+      vertical-align: middle;
+      height: 2em;
+      width: 35px; }
+      button.menu-btn .icon-menu .line,
+      .button.menu-btn .icon-menu .line {
         display: block;
         position: absolute;
         top: 50%;
@@ -139,15 +148,15 @@ button,
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
         left: 0;
-        height: 5px;
+        height: 4px;
         width: 100%;
         background-color: #06536e;
         border-radius: 2px;
         -webkit-transition: all 0.5s;
         transition: all 0.5s; }
-        button.menu .icon-menu .line:before, button.menu .icon-menu .line:after,
-        .button.menu .icon-menu .line:before,
-        .button.menu .icon-menu .line:after {
+        button.menu-btn .icon-menu .line:before, button.menu-btn .icon-menu .line:after,
+        .button.menu-btn .icon-menu .line:before,
+        .button.menu-btn .icon-menu .line:after {
           content: '';
           position: absolute;
           left: 0;
@@ -158,19 +167,41 @@ button,
           border-radius: 2px;
           -webkit-transition: all 0.5s;
           transition: all 0.5s; }
-        button.menu .icon-menu .line:before,
-        .button.menu .icon-menu .line:before {
-          bottom: 12px; }
-        button.menu .icon-menu .line:after,
-        .button.menu .icon-menu .line:after {
-          top: 12px; }
+        button.menu-btn .icon-menu .line:before,
+        .button.menu-btn .icon-menu .line:before {
+          bottom: 10px; }
+        button.menu-btn .icon-menu .line:after,
+        .button.menu-btn .icon-menu .line:after {
+          top: 10px; }
     @media (min-width: 768px) {
-      button.menu:hover .icon-menu .line:before,
-      .button.menu:hover .icon-menu .line:before {
-        bottom: 14px; }
-      button.menu:hover .icon-menu .line:after,
-      .button.menu:hover .icon-menu .line:after {
-        top: 14px; } }
+      button.menu-btn,
+      .button.menu-btn {
+        padding-top: 20px;
+        padding-bottom: 20px; }
+        button.menu-btn .btn-text,
+        .button.menu-btn .btn-text {
+          display: inline; }
+        button.menu-btn .icon-menu,
+        .button.menu-btn .icon-menu {
+          margin-left: 20px;
+          height: 1em;
+          width: 40px;
+          vertical-align: middle; }
+          button.menu-btn .icon-menu .line,
+          .button.menu-btn .icon-menu .line {
+            height: 5px; }
+            button.menu-btn .icon-menu .line:before,
+            .button.menu-btn .icon-menu .line:before {
+              bottom: 12px; }
+            button.menu-btn .icon-menu .line:after,
+            .button.menu-btn .icon-menu .line:after {
+              top: 12px; }
+        button.menu-btn:hover .icon-menu .line:before,
+        .button.menu-btn:hover .icon-menu .line:before {
+          bottom: 14px; }
+        button.menu-btn:hover .icon-menu .line:after,
+        .button.menu-btn:hover .icon-menu .line:after {
+          top: 14px; } }
 
 .width-container {
   max-width: 1200px;
@@ -190,42 +221,66 @@ section {
 
 header {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
   box-shadow: 4px 2px 20px -10px #000; }
+  @media (min-width: 768px) {
+    header {
+      max-height: none;
+      overflow-y: visible; } }
   header .title-bar {
     position: relative;
     z-index: 2;
-    padding: 40px 20px 35px;
+    padding: 20px 20px 15px;
     background-color: #FFF; }
     header .title-bar .logo {
       display: inline-block;
-      height: 64px;
-      width: auto; }
+      height: 30px;
+      width: auto;
+      max-width: 50%; }
     header .title-bar .action-btns {
-      display: inline-block;
-      float: right; }
+      display: block;
+      max-height: 0;
+      overflow: hidden;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
       header .title-bar .action-btns button {
-        margin-right: 30px; }
+        display: block;
+        margin: 0 auto 20px; }
         header .title-bar .action-btns button:last-child {
-          margin: 0; }
+          margin-bottom: 0; }
+    header .title-bar .menu-btn {
+      float: right; }
+    @media (min-width: 768px) {
+      header .title-bar {
+        padding: 40px 20px 35px; }
+        header .title-bar .logo {
+          height: 64px; }
+        header .title-bar .action-btns {
+          display: inline-block;
+          float: right;
+          max-height: none;
+          padding: 0; }
+          header .title-bar .action-btns button {
+            display: inline-block;
+            margin-right: 30px; } }
   header nav {
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    width: 100%;
     max-height: 0;
     overflow: hidden;
-    background-color: #06536e; }
-    header nav .width-container {
-      display: flex; }
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s; }
     header nav .nav-box {
-      display: inline-block;
-      flex: 1 1 auto;
-      padding: 135px 20px 35px;
+      display: block;
+      padding: 20px 20px;
       text-align: center;
       color: #FFF;
+      text-transform: uppercase;
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
       background-color: #06536e; }
@@ -236,22 +291,57 @@ header {
       header nav .nav-box:nth-child(4) {
         background-color: #60c7d8; }
       header nav .nav-box .nav-title {
-        margin: 0;
+        margin: 0 0 15px;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
         font-size: 1rem; }
-      header nav .nav-box .open-cont {
-        max-height: 0;
-        overflow: hidden; }
-        header nav .nav-box .open-cont a.nav-item {
-          color: #FFF;
+      header nav .nav-box .open-cont a.nav-item {
+        display: block;
+        margin-bottom: 3px;
+        padding: 8px 0;
+        color: #FFF; }
+      header nav .nav-box .open-cont button {
+        margin-top: 5px; }
+    @media (min-width: 768px) {
+      header nav {
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        width: 100%;
+        background-color: #06536e; }
+        header nav .width-container {
+          display: flex; }
+        header nav .nav-box {
           display: inline-block;
-          margin-bottom: 25px; }
-      header nav .nav-box.focus {
-        padding-top: 80px; }
-        header nav .nav-box.focus .nav-title {
-          margin-bottom: 40px; }
-        header nav .nav-box.focus .open-cont {
-          max-height: 400px; }
-    header nav.open {
-      max-height: 300px; }
+          flex: 1 1 0;
+          padding: 135px 20px 35px; }
+          header nav .nav-box.focus {
+            padding-top: 80px; }
+            header nav .nav-box.focus .nav-title {
+              margin-bottom: 40px; }
+            header nav .nav-box.focus .open-cont {
+              max-height: 400px; }
+          header nav .nav-box .nav-title {
+            margin: 0;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+            font-size: 1rem; }
+          header nav .nav-box .open-cont {
+            max-height: 0;
+            overflow: hidden; }
+            header nav .nav-box .open-cont a.nav-item {
+              color: #FFF;
+              display: inline-block;
+              margin-bottom: 25px; } }
+  header.open .title-bar .action-btns {
+    display: block;
+    padding-top: 20px;
+    max-height: 150px; }
+  header.open nav {
+    max-height: 250vh; }
+  @media (min-width: 768px) {
+    header.open .title-bar .action-btns {
+      display: inline-block;
+      padding-top: 0; }
+    header.open nav {
+      max-height: 300px; } }
