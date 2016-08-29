@@ -9,7 +9,7 @@ header {
 	.title-bar {
 		position: relative;
 		z-index: 2;
-		padding: 40px 20px;
+		padding: 40px 20px 35px;
 		background-color: $white;
 		
 		.logo {
@@ -20,6 +20,14 @@ header {
 		.action-btns {
 			display: inline-block;
 			float: right;
+
+			button {
+				margin-right: 30px;
+
+				&:last-child {
+					margin: 0;
+				}
+			}
 		}
 	}
 
@@ -57,6 +65,7 @@ header {
 			.nav-title {
 				margin: 0;
 				@include transition();
+				font-size: 1rem;
 			}
 			.open-cont {
 				max-height: 0;

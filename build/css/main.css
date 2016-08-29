@@ -10,9 +10,12 @@ body {
   padding: 0; }
 
 html {
-  font-size: 20px;
-  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-family: "Open Sans", Arial, sans-serif;
   color: #222; }
+
+body {
+  padding-top: 100px; }
 
 h1,
 h2,
@@ -34,6 +37,9 @@ h3 {
 h4 {
   font-size: 1.3rem; }
 
+h5 {
+  font-size: 1rem; }
+
 a {
   font-size: 1rem;
   color: #222;
@@ -42,6 +48,129 @@ a {
   transition: all 0.5s; }
   a:visited {
     color: #222; }
+
+button,
+.button {
+  display: inline-block;
+  background-color: transparent;
+  padding: 20px 35px;
+  border: none;
+  border-radius: 35px;
+  text-align: center;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer; }
+  button.gold,
+  .button.gold {
+    background-color: #fbb117;
+    border: 2px solid #fbb117;
+    color: #FFF; }
+    button.gold:active,
+    .button.gold:active {
+      background-color: #a97303;
+      color: #fbb117; }
+  button.grey,
+  .button.grey {
+    background-color: transparent;
+    border: 2px solid #666;
+    color: #000; }
+    button.grey:active,
+    .button.grey:active {
+      background-color: #666;
+      color: #666; }
+  button.white,
+  .button.white {
+    background-color: transparent;
+    border: 2px solid #FFF;
+    color: #FFF; }
+    button.white:active,
+    .button.white:active {
+      background-color: #FFF;
+      color: #FFF; }
+  @media (min-width: 768px) {
+    button.gold:hover,
+    .button.gold:hover {
+      background-color: #db9504; }
+    button.grey:hover,
+    .button.grey:hover {
+      background-color: #666;
+      color: #FFF; }
+    button.grey:active,
+    .button.grey:active {
+      color: #666; }
+    button.white:hover,
+    .button.white:hover {
+      background-color: #FFF;
+      color: #666; } }
+  button.menu,
+  .button.menu {
+    position: relative;
+    color: #06536e;
+    padding-left: 5px;
+    padding-right: 5px; }
+    button.menu:active,
+    .button.menu:active {
+      color: #FFF; }
+      button.menu:active .icon-menu .line,
+      button.menu:active .icon-menu .line:before,
+      button.menu:active .icon-menu .line:after,
+      .button.menu:active .icon-menu .line,
+      .button.menu:active .icon-menu .line:before,
+      .button.menu:active .icon-menu .line:after {
+        background-color: #FFF; }
+    button.menu .icon-menu,
+    .button.menu .icon-menu {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      margin-left: 20px;
+      height: 1em;
+      width: 40px; }
+      button.menu .icon-menu .line,
+      .button.menu .icon-menu .line {
+        display: block;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+        height: 5px;
+        width: 100%;
+        background-color: #06536e;
+        border-radius: 2px;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s; }
+        button.menu .icon-menu .line:before, button.menu .icon-menu .line:after,
+        .button.menu .icon-menu .line:before,
+        .button.menu .icon-menu .line:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          background-color: #06536e;
+          border-radius: 2px;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s; }
+        button.menu .icon-menu .line:before,
+        .button.menu .icon-menu .line:before {
+          bottom: 12px; }
+        button.menu .icon-menu .line:after,
+        .button.menu .icon-menu .line:after {
+          top: 12px; }
+    @media (min-width: 768px) {
+      button.menu:hover .icon-menu .line:before,
+      .button.menu:hover .icon-menu .line:before {
+        bottom: 14px; }
+      button.menu:hover .icon-menu .line:after,
+      .button.menu:hover .icon-menu .line:after {
+        top: 14px; } }
 
 .width-container {
   max-width: 1200px;
@@ -68,7 +197,7 @@ header {
   header .title-bar {
     position: relative;
     z-index: 2;
-    padding: 40px 20px;
+    padding: 40px 20px 35px;
     background-color: #FFF; }
     header .title-bar .logo {
       display: inline-block;
@@ -77,6 +206,10 @@ header {
     header .title-bar .action-btns {
       display: inline-block;
       float: right; }
+      header .title-bar .action-btns button {
+        margin-right: 30px; }
+        header .title-bar .action-btns button:last-child {
+          margin: 0; }
   header nav {
     position: absolute;
     z-index: 1;
@@ -105,7 +238,8 @@ header {
       header nav .nav-box .nav-title {
         margin: 0;
         -webkit-transition: all 0.5s;
-        transition: all 0.5s; }
+        transition: all 0.5s;
+        font-size: 1rem; }
       header nav .nav-box .open-cont {
         max-height: 0;
         overflow: hidden; }
