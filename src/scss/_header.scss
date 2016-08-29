@@ -9,9 +9,27 @@ header {
 	overflow-y: auto;
 	box-shadow: $box-shadow;
 
+	.desktop-background {
+		display: none;
+	}
+
 	@media (min-width: $mobile) {
 		max-height: none;
 		overflow-y: visible;
+
+		.desktop-background {
+			display: block;
+			position: fixed;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			height: 0; // 100% when showing
+			width: 100%;
+			opacity: 0; // fade in
+			background-color: $black;
+			-webkit-transition: opacity 0.5s;
+			transition: opacity 0.5s;
+		}
 	}
 
 	.title-bar {
@@ -123,11 +141,13 @@ header {
 
 			.width-container {
 				display: flex;
+				align-items: flex-start; // top-aligned
 			}
 			.nav-box {
 				display: inline-block;
 				flex: 1 1 0;
 				padding: 135px 20px 35px;
+				@include transition();
 
 				&.focus {
 					padding-top: 80px;
@@ -143,6 +163,7 @@ header {
 					margin: 0;
 					@include transition();
 					font-size: 1rem;
+					cursor: pointer;
 				}
 				.open-cont {
 					max-height: 0;
@@ -176,6 +197,10 @@ header {
 		}
 
 		@media (min-width: $mobile) {
+			.desktop-background {
+				height: 100%;
+				opacity: 0.8;
+			}
 			.title-bar {
 				.action-btns {
 					display: inline-block;

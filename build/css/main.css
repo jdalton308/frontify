@@ -228,10 +228,24 @@ header {
   max-height: 100vh;
   overflow-y: auto;
   box-shadow: 4px 2px 20px -10px #000; }
+  header .desktop-background {
+    display: none; }
   @media (min-width: 768px) {
     header {
       max-height: none;
-      overflow-y: visible; } }
+      overflow-y: visible; }
+      header .desktop-background {
+        display: block;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        opacity: 0;
+        background-color: #000;
+        -webkit-transition: opacity 0.5s;
+        transition: opacity 0.5s; } }
   header .title-bar {
     position: relative;
     z-index: 2;
@@ -310,11 +324,14 @@ header {
         width: 100%;
         background-color: #06536e; }
         header nav .width-container {
-          display: flex; }
+          display: flex;
+          align-items: flex-start; }
         header nav .nav-box {
           display: inline-block;
           flex: 1 1 0;
-          padding: 135px 20px 35px; }
+          padding: 135px 20px 35px;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s; }
           header nav .nav-box.focus {
             padding-top: 80px; }
             header nav .nav-box.focus .nav-title {
@@ -325,7 +342,8 @@ header {
             margin: 0;
             -webkit-transition: all 0.5s;
             transition: all 0.5s;
-            font-size: 1rem; }
+            font-size: 1rem;
+            cursor: pointer; }
           header nav .nav-box .open-cont {
             max-height: 0;
             overflow: hidden; }
@@ -340,6 +358,9 @@ header {
   header.open nav {
     max-height: 250vh; }
   @media (min-width: 768px) {
+    header.open .desktop-background {
+      height: 100%;
+      opacity: 0.8; }
     header.open .title-bar .action-btns {
       display: inline-block;
       padding-top: 0; }
