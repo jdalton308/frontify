@@ -18,11 +18,17 @@ $(function(){
 		var $subMenus = $nav.find('.nav-box');
 		var $subTriggers = $subMenus.find('.nav-title');
 
+
 		// State variables
 		//-------------------
 		var isOpen = false;
 		var subMenuOpen = false;
 
+
+		// Logic - Mostly just timing for CSS animations
+		//-----------
+
+		// Animate the hamburger icon
 		function animateHamburger() {
 			var stepDelay = 500;
 
@@ -49,6 +55,7 @@ $(function(){
 			}
 		}
 
+		// Animate the closing and opening of the menu
 		function animateMenu() {
 			if (isOpen) {
 				$header.toggleClass('open');
@@ -60,6 +67,8 @@ $(function(){
 				}, 1300)
 			}
 		}
+
+		// Animate the sub-menu on desktop
 		function toggleSubMenu() {
 			var $this = $(this);
 			var alreadyOpen = $this.hasClass('focus');
@@ -82,10 +91,10 @@ $(function(){
 			}
 
 		}
+
+		// Close the sub-menu when needed
 		function closeSubMenu(hideOverflow) {
 			var $openBox = $subMenus.filter('.focus');
-			console.log('$openBox in closeSubMen():');
-			console.log($openBox);
 
 			if ($openBox.length) {
 				$openBox.addClass('hide-focus');
@@ -100,17 +109,17 @@ $(function(){
 			}
 		}
 
+		// Bind events...
 		function bindEvents() {
 
 			// Toggle the menu ------
-			//-----------------------
 			$menuTrigger.click(function(){
 
 				isOpen = !isOpen;
 				var timeoutVal;
 
 				// If closing, and submenu is open...
-				if (!isMobile && !isOpen && subMenuOpen) {
+				if (!isMobile && !isOpen && subMenuOpen) {					
 					closeSubMenu(true); // takes about 1.5sec
 
 					timeoutVal = 1400;
@@ -134,13 +143,14 @@ $(function(){
 
 
 			// Open sub-menus, only on desktop ------
-			//------------------------
 			if (!isMobile) {
 				$subMenus.click(toggleSubMenu);
 			}
 		}
 
 
+		// Initialize page
+		//------------------
 		function init() {
 			bindEvents();
 		}
@@ -149,6 +159,7 @@ $(function(){
 			init: init
 		}
 	})();
+
 
 	Menu.init();
 });

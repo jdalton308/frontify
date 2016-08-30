@@ -171,19 +171,16 @@ header {
 					background-color: darken($front-navy, 10%);
 				}
 				&:nth-child(2) {
-					// background-color: $front-gold;
 					&:hover {
 						background-color: darken($front-gold, 10%);
 					}
 				}
 				&:nth-child(3) {
-					// background-color: $front-pink;
 					&:hover {
 						background-color: darken($front-pink, 10%);
 					}
 				}
 				&:nth-child(4) {
-					// background-color: $front-aqua;
 					&:hover {
 						background-color: darken($front-aqua, 10%);
 					}
@@ -346,6 +343,7 @@ header {
 						height: auto;
 						min-height: 100%;
 						padding-top: 60px;
+						@include transition(0.3s);
 						-webkit-transition-delay: 0s;
 						transition-delay: 0s;
 
@@ -371,6 +369,7 @@ header {
 
 						.nav-title {
 							margin-bottom: 15px;
+							@include transition(0.3s);
 							-webkit-transition-delay: 0s;
 							transition-delay: 0s;
 						}
@@ -378,26 +377,26 @@ header {
 							max-height: 150px;
 							opacity: 1;
 							@include transition(0s);
-							-webkit-transition: opacity 0.5s 0.9s, max-height 0.6s 0.4s;
-							transition: opacity 0.5s 0.9s, max-height 0.6s 0.4s;
+							-webkit-transition: opacity 0.4s 0.7s, max-height 0.5s 0.3s;
+							transition: opacity 0.4s 0.7s, max-height 0.5s 0.3s;
 						}
 
 						// Class added to close sub-menu
 						&.hide-focus {
 							padding-top: 90px;
-							-webkit-transition-delay: 1s;
-							transition-delay: 1s;
+							-webkit-transition-delay: 0.9s;
+							transition-delay: 0.9s;
 
 							.nav-title {
 								margin-bottom: 0px;
-								-webkit-transition-delay: 1s;
-								transition-delay: 1s;
+								-webkit-transition-delay: 0.9s;
+								transition-delay: 0.9s;
 							}
 							.open-cont {
 								max-height: 0px;
 								opacity: 0;
-								-webkit-transition: opacity 0.5s 0s, max-height 0.8s 0.5s;
-								transition: opacity 0.5s 0s, max-height 0.8s 0.5s;
+								-webkit-transition: opacity 0.4s 0s, max-height 0.5s 0.5s;
+								transition: opacity 0.4s 0s, max-height 0.5s 0.5s;
 							}
 						}
 

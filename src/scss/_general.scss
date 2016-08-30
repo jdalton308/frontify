@@ -93,11 +93,11 @@ button,
 	}
 	&.grey {
 		background-color: transparent;
-		border: 1px solid $grey;
+		border: 1px solid $light-grey;
 		color: $black;
 
 		&:active {
-			background-color: $grey;
+			background-color: $light-grey;
 			color: $grey;
 		}
 	}
