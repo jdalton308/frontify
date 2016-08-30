@@ -74,12 +74,12 @@ header {
 				display: inline-block;
 				float: right;
 				max-height: none;
-				padding: 0;
+				padding: 10px 0 0;
 
 				button {
 					display: inline-block;
 					opacity: 1;
-					margin-right: 30px;
+					margin: 0 30px 0 0;
 				}
 			}
 
@@ -131,6 +131,7 @@ header {
 					margin-bottom: 3px;
 					padding: 8px 0;
 					color: $white;
+					font-weight: 700;
 				}
 				button {
 					margin-top: 5px;
@@ -143,29 +144,51 @@ header {
 			z-index: 1;
 			top: 100%;
 			width: 100%;
+			height: 0;
+			max-height: none;
 			background-color: $front-navy;
 			@include transition(0.4s);
+
+			&.box-in-focus {
+				overflow: visible;
+			}
 
 			.width-container {
 				display: flex;
 				align-items: flex-start; // top-aligned
+				height: 100%;
 			}
 			.nav-box {
 				display: inline-block;
 				flex: 1 1 0;
-				padding: 135px 20px 35px;
+				height: 100%;
+				max-height: none;
+				padding: 135px 20px 30px;
 				@include transition();
+				cursor: pointer;
 
-				&.focus {
-					padding-top: 80px;
-
-					.nav-title {
-						margin-bottom: 40px;
-					}
-					.open-cont {
-						max-height: 400px;
+				&:hover {
+					background-color: darken($front-navy, 10%);
+				}
+				&:nth-child(2) {
+					// background-color: $front-gold;
+					&:hover {
+						background-color: darken($front-gold, 10%);
 					}
 				}
+				&:nth-child(3) {
+					// background-color: $front-pink;
+					&:hover {
+						background-color: darken($front-pink, 10%);
+					}
+				}
+				&:nth-child(4) {
+					// background-color: $front-aqua;
+					&:hover {
+						background-color: darken($front-aqua, 10%);
+					}
+				}
+
 				.nav-title {
 					margin: 0;
 					font-size: 1rem;
@@ -175,14 +198,31 @@ header {
 					transition-delay: 1s;
 				}
 				.open-cont {
-					opacity: 1;
 					max-height: 0;
 					overflow: hidden;
 
 					a.nav-item {
+						position: relative;
 						color: $white;
-						display: inline-block;
-						margin-bottom: 25px;
+						margin-bottom: 5px;
+
+						&:before {
+							content: '';
+							@include centerX();
+							bottom: 3px;
+							display: inline-block;
+							width: 0;
+							height: 0;
+							background-color: $white;
+							@include transition();
+						}
+
+						&:hover {
+							&:before {
+								height: 1px;
+								width: 50%;
+							}
+						}
 					}
 					button {
 
@@ -194,6 +234,7 @@ header {
 
 
 	// Nav Open: Show nav items and change hamburger to 'X'
+	//-----------------
 	&.open {
 		.title-bar {
 			.action-btns {
@@ -203,8 +244,8 @@ header {
 
 				button {
 					opacity: 1;
-					-webkit-transition-delay: 0.4s;
-					transition-delay: 0.4s;
+					-webkit-transition-delay: 0.6s;
+					transition-delay: 0.6s;
 				}
 			}
 		}
@@ -215,15 +256,19 @@ header {
 				max-height: 400px;
 				padding-top: 20px;
 				padding-bottom: 20px;
+				-webkit-transition-delay: 0.3s;
+				transition-delay: 0.3s;
 
 				.nav-title,
 				.open-cont {
 					opacity: 1;
-					-webkit-transition-delay: 0.5s;
-					transition-delay: 0.5s;
+					-webkit-transition-delay: 0.6s;
+					transition-delay: 0.6s;
 				}
 			}
 		}
+
+		// Class used to reverse closing animations
 		&.close-start {
 			.title-bar {
 				.action-btns {
@@ -265,26 +310,126 @@ header {
 			.title-bar {
 				.action-btns {
 					display: inline-block;
-					padding-top: 0;
+					padding-top: 10px;
+
+					button {
+						-webkit-transition-delay: 0s;
+						transition-delay: 0s;
+					}
 				}
+
 			}
 			nav {
-				max-height: 220px;
+				height: 140px;
 				-webkit-transition-delay: 0.4s;
 				transition-delay: 0.4s;
+
+				.nav-box {
+					padding: 90px 20px 20px;
+					-webkit-transition-delay: 0s;
+					transition-delay: 0s;
+
+					.nav-title {
+						opacity: 1;
+						-webkit-transition-delay: 0.9s;
+						transition-delay: 0.9s;
+					}
+					.open-cont {
+						opacity: 0;
+						-webkit-transition-delay: 0s;
+						transition-delay: 0s;
+					}
+
+
+					// Open sub-menu, using transition-delays to stagger animations
+					&.focus {
+						height: auto;
+						min-height: 100%;
+						padding-top: 60px;
+						-webkit-transition-delay: 0s;
+						transition-delay: 0s;
+
+						// No hover state when open
+						&:hover {
+							background-color: $front-navy;
+						}
+						&:nth-child(2) {
+							&:hover {
+								background-color: $front-gold;
+							}
+						}
+						&:nth-child(3) {
+							&:hover {
+								background-color: $front-pink;
+							}
+						}
+						&:nth-child(4) {
+							&:hover {
+								background-color: $front-aqua;
+							}
+						}
+
+						.nav-title {
+							margin-bottom: 15px;
+							-webkit-transition-delay: 0s;
+							transition-delay: 0s;
+						}
+						.open-cont {
+							max-height: 150px;
+							opacity: 1;
+							@include transition(0s);
+							-webkit-transition: opacity 0.5s 0.9s, max-height 0.6s 0.4s;
+							transition: opacity 0.5s 0.9s, max-height 0.6s 0.4s;
+						}
+
+						// Class added to close sub-menu
+						&.hide-focus {
+							padding-top: 90px;
+							-webkit-transition-delay: 1s;
+							transition-delay: 1s;
+
+							.nav-title {
+								margin-bottom: 0px;
+								-webkit-transition-delay: 1s;
+								transition-delay: 1s;
+							}
+							.open-cont {
+								max-height: 0px;
+								opacity: 0;
+								-webkit-transition: opacity 0.5s 0s, max-height 0.8s 0.5s;
+								transition: opacity 0.5s 0s, max-height 0.8s 0.5s;
+							}
+						}
+
+					}
+				}
 			}
 
+			// Using second class to close to do things in reverse
 			&.close-start {
 				.desktop-background {
 					opacity: 0;
 					-webkit-transition-delay: 0.8s;
 					transition-delay: 0.8s;
 				}
+				.title-bar {
+					.action-btns {
+						padding-top: 10px;
+						max-height: none;
+
+						button {
+							opacity: 1; // mobile reset
+						}
+					}
+				}
 				nav {
-					max-height: 0;
+					height: 0;
+					-webkit-transition-delay: 0.4s;
+					transition-delay: 0.4s;
 
 					.nav-box {
 						.nav-title {
+							opacity: 0;
 							-webkit-transition-delay: 0s;
 							transition-delay: 0s;
 						}
