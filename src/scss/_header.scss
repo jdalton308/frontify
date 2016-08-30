@@ -51,6 +51,7 @@ header {
 			@include transition();
 
 			button {
+				opacity: 0; // fade in the buttons
 				display: block;
 				margin: 0 auto 20px;
 
@@ -77,11 +78,8 @@ header {
 
 				button {
 					display: inline-block;
+					opacity: 1;
 					margin-right: 30px;
-
-					// &:last-child {
-					// 	margin: 0;
-					// }
 				}
 			}
 
@@ -92,12 +90,16 @@ header {
 		max-height: 0;
 		overflow: hidden;
 		@include transition(0.8s);
-		-webkit-transition-delay: 0.3s;
-		transition-delay: 0.3s;
 			
 		.nav-box {
+			max-height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			overflow: hidden;
+
 			display: block;
-			padding: 20px 20px;
+			padding-left: 20px;
+			padding-right: 20px;
 			text-align: center;
 			color: $white;
 			text-transform: uppercase;
@@ -115,11 +117,15 @@ header {
 			}
 
 			.nav-title {
+				opacity: 0; // fade-in
 				margin: 0 0 15px;
 				@include transition();
 				font-size: 1rem;
 			}
 			.open-cont {
+				opacity: 0; // fade-in
+				@include transition(0.4s);
+
 				a.nav-item {
 					display: block;
 					margin-bottom: 3px;
@@ -138,6 +144,7 @@ header {
 			top: 100%;
 			width: 100%;
 			background-color: $front-navy;
+			@include transition(0.4s);
 
 			.width-container {
 				display: flex;
@@ -161,11 +168,14 @@ header {
 				}
 				.nav-title {
 					margin: 0;
-					@include transition();
 					font-size: 1rem;
 					cursor: pointer;
+					@include transition();
+					-webkit-transition-delay: 1s;
+					transition-delay: 1s;
 				}
 				.open-cont {
+					opacity: 1;
 					max-height: 0;
 					overflow: hidden;
 
@@ -186,17 +196,65 @@ header {
 	// Nav Open: Show nav items and change hamburger to 'X'
 	&.open {
 		.title-bar {
-			.menu-btn {
-				
-			}
 			.action-btns {
 				display: block;
 				padding-top: 20px;
 				max-height: 150px;
+
+				button {
+					opacity: 1;
+					-webkit-transition-delay: 0.4s;
+					transition-delay: 0.4s;
+				}
 			}
 		}
 		nav {
 			max-height: 250vh;
+
+			.nav-box {
+				max-height: 400px;
+				padding-top: 20px;
+				padding-bottom: 20px;
+
+				.nav-title,
+				.open-cont {
+					opacity: 1;
+					-webkit-transition-delay: 0.5s;
+					transition-delay: 0.5s;
+				}
+			}
+		}
+		&.close-start {
+			.title-bar {
+				.action-btns {
+					padding-top: 0;
+					max-height: 0;
+					-webkit-transition-delay: 0.9s;
+					transition-delay: 0.9s;
+					
+					button {
+						opacity: 0;
+						-webkit-transition-delay: 0s;
+						transition-delay: 0s;
+					}
+				}
+			}
+			nav {
+				.nav-box {
+					max-height: 0;
+					padding-top: 0px;
+					padding-bottom: 0px;
+					-webkit-transition-delay: 0.4s;
+					transition-delay: 0.4s;
+
+					.nav-title,
+					.open-cont {
+						-webkit-transition-delay: 0s;
+						transition-delay: 0s;
+						opacity: 0;
+					}
+				}
+			}
 		}
 
 		@media (min-width: $mobile) {
@@ -211,7 +269,27 @@ header {
 				}
 			}
 			nav {
-				max-height: 300px;
+				max-height: 220px;
+				-webkit-transition-delay: 0.4s;
+				transition-delay: 0.4s;
+			}
+
+			&.close-start {
+				.desktop-background {
+					opacity: 0;
+					-webkit-transition-delay: 0.8s;
+					transition-delay: 0.8s;
+				}
+				nav {
+					max-height: 0;
+
+					.nav-box {
+						.nav-title {
+							-webkit-transition-delay: 0s;
+							transition-delay: 0s;
+						}
+					}
+				}
 			}
 		}
 	}

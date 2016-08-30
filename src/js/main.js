@@ -22,7 +22,7 @@ $(function(){
 
 		function animateHamburger() {
 			var stepDelay = 500;
-			// Timing for hamburger animation
+
 			if (isOpen) {
 				$menuTrigger.addClass('close-collapse');
 				window.setTimeout(function(){
@@ -46,19 +46,33 @@ $(function(){
 			}
 		}
 
+		function animateMenu() {
+			if (isOpen) {
+				$header.toggleClass('open');
+			} else {
+				$header.addClass('close-start');
+
+				window.setTimeout(function(){
+					$header.removeClass('open close-start');
+				}, 1300)
+			}
+		}
+
 		function bindEvents() {
 
 			// Open the menu ------
 			$menuTrigger.click(function(){
+
+				isOpen = !isOpen;
+
 				// Prevent scroll of regular page
 				$body.toggleClass('fixed', isOpen);
 
 				// Trigger menu to open
-				$header.toggleClass('open', isOpen);
+				animateMenu();
+				// $header.toggleClass('open', isOpen);
 
 				animateHamburger();
-
-				isOpen = !isOpen;
 			});
 
 			// Open sub-menus on desktop ------
