@@ -186,6 +186,9 @@ header {
 	// Nav Open: Show nav items and change hamburger to 'X'
 	&.open {
 		.title-bar {
+			.menu-btn {
+				
+			}
 			.action-btns {
 				display: block;
 				padding-top: 20px;

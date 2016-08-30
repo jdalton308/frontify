@@ -138,7 +138,9 @@ button,
       display: inline-block;
       vertical-align: middle;
       height: 2em;
-      width: 35px; }
+      width: 35px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
       button.menu-btn .icon-menu .line,
       .button.menu-btn .icon-menu .line {
         display: block;
@@ -173,6 +175,28 @@ button,
         button.menu-btn .icon-menu .line:after,
         .button.menu-btn .icon-menu .line:after {
           top: 10px; }
+    button.menu-btn.close-collapse .icon-menu .line:before,
+    .button.menu-btn.close-collapse .icon-menu .line:before {
+      bottom: 0; }
+    button.menu-btn.close-collapse .icon-menu .line:after,
+    .button.menu-btn.close-collapse .icon-menu .line:after {
+      top: 0; }
+    button.menu-btn.close-collapse:hover .icon-menu .line:before,
+    .button.menu-btn.close-collapse:hover .icon-menu .line:before {
+      bottom: 0; }
+    button.menu-btn.close-collapse:hover .icon-menu .line:after,
+    .button.menu-btn.close-collapse:hover .icon-menu .line:after {
+      top: 0; }
+    button.menu-btn.close-collapse.close-turn .icon-menu,
+    .button.menu-btn.close-collapse.close-turn .icon-menu {
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    button.menu-btn.close-collapse.close-turn.close-x .icon-menu .line:before,
+    .button.menu-btn.close-collapse.close-turn.close-x .icon-menu .line:before {
+      -ms-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg); }
     @media (min-width: 768px) {
       button.menu-btn,
       .button.menu-btn {
@@ -183,10 +207,11 @@ button,
           display: inline; }
         button.menu-btn .icon-menu,
         .button.menu-btn .icon-menu {
-          margin-left: 20px;
+          vertical-align: top;
+          top: 3px;
+          margin-left: 15px;
           height: 1em;
-          width: 40px;
-          vertical-align: middle; }
+          width: 40px; }
           button.menu-btn .icon-menu .line,
           .button.menu-btn .icon-menu .line {
             height: 5px; }
